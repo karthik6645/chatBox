@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="all.css">
+    <script>
+
+        $(document).ready(function(){
+            var hr=new Date().getHours()
+            var min=new Date().getMinutes()
+            var time=`${hr}:${min}`
+           $("#leftInput").focus(function(){
+               $("#leftInput").css({"background-color":"lightycyan"})
+           })
+           $("#leftInput").blur(function(){
+               $("#leftInput").css({"background-color":"white"})
+           })
+           $("#rightInput").focus(function(){
+               $("#rightInput").css({"background-color":"lightcyan"})
+           })
+           $("#rightInput").blur(function(){
+               $("#rightInput").css({"background-color":"white"})
+           })
+            $("#leftbtn").click(function(){
+               var leftDisplay= $("#leftInput").val()
+               if(leftDisplay!=""){
+                $("#leftp").append("<span style='float:right; border-radius:8px 8px 0px 8px;'>"+leftDisplay+"&nbsp;&nbsp;<sub>"+time+"</sub></span><br><br>")
+            $("#rightp").append("<span style='float:left; border-radius:8px 8px 8px 0px;'>"+leftDisplay+"&nbsp;&nbsp;<sub>"+time+"</sub></span><br><br>")
+            document.getElementById("leftInput").value=""
+            $("#seen2").text("last seen:"+time)
+               }
+            })
+            $("#rightbtn").click(function(){
+                var rightDisplay= $("#rightInput").val()
+                if(rightDisplay!=""){
+            $("#rightp").append("<span style='float:right; border-radius:8px 8px 0px 8px;'>"+rightDisplay+"&nbsp;&nbsp;<sub>"+time+"</sub></span><br><br>")
+            $("#leftp").append("<span style='float:left; border-radius:8px 8px 8px 0px;'>"+rightDisplay+"&nbsp;&nbsp;<sub>"+time+"</sub></span><br><br>")
+            document.getElementById("rightInput").value=""
+            $("#seen").text("last seen:"+time)
+                }
+            })
+          
+        })
+         
+        // var objDiv = document.getElementById("right");
+        // objDiv.scrollTop = objDiv.scrollHeight;
+
+        // var objDiv2 = document.getElementById("left");
+        // objDiv2.scrollTop = objDiv2.scrollHeight;
+     </script>
+    <style>
+        body{
+            /* background-image: url(backimg.png); */
+            background-image: url(back.jpg);
+            background-size: cover;
+        }
+        #hleft{
+           
+            width: 400px;
+            height: 60px;
+            border-radius: 15px;
+            margin-left: 230px;
+           margin-top: 40px;
+       background-color:beige;
+        }
+        #hright{
+            height: 60px;
+           
+            width: 400px;
+           margin-left: 677px;
+           margin-top: -60px;
+           border-radius: 15px;
+           background-color:beige;
+        }
+        #imgr{
+            margin-top: 5px;
+            margin-left: 20px;
+            border: 1px solid;
+            width: 50px;
+            height: 50px;
+            border-radius: 100px;
+            background-image: url("iron man.jpg");
+            background-size: cover;
+            display:inline-block;
+        }
+        #imgl{
+            margin-top: 5px;
+            margin-left: 20px;
+            border: 1px solid;
+            width: 50px;
+            height: 50px;
+            border-radius: 100px;
+            background-image: url(ias.jpg);
+            background-size: cover;
+            display:inline-block;
+        }
+        #left{
+           
+          width: 400px;
+          height: 500px;
+          overflow: auto;
+          margin-left: 230px;
+          margin-top: 1px;
+         background-image: url(img2.png);
+         background-size: cover;
+         border-radius: 25px;
+        }
+        #right{
+           
+          width: 400px;
+          height: 500px;
+          overflow: auto;
+            float: right;
+            margin-top: -541px;
+            margin-right: 270px;    
+            background-image: url(img2.png);     
+            background-size: cover; 
+            border-radius: 25px;  
+        }
+        #leftForm{
+            margin-left: 250px;
+           
+        }
+        #rightForm{
+            margin-top: -41px;
+            margin-left: 699px;                        
+        }
+        input{
+            border-radius: 20px;
+            width: 290px;
+            height: 35px;
+            font-size: 20px;
+        }
+       
+        span{
+           
+            margin:0px;
+            /* max-width:%; */
+         background-color: lightgreen;
+       
+            margin: 0px 5px 0px 5px;
+        }
+        #leftp,#rightp{
+            border: 0px;
+        }
+        #leftbtn,#rightbtn{
+            background-color: darkgreen;
+            color: white;
+            width: 50px;
+            border-radius: 10px;
+        }
+        #headdingr,#headdingl{
+        margin-left: 80px;
+     margin-top: -50px;
+    }
+   
+    </style>
+ 
+</head>
+
+<body>
+    <div id="hleft">
+        <div id="imgl"></div>
+      <div  id="headdingl"> <b style="background-color: none;">Karthik</b><br><i id="seen">last seen:</i></div>
+    
+    </div>
+    <div id="hright">
+        <div id="imgr"></div>
+      <div id="headdingr"><b >Iron Man</b><br><i id=seen2>last seen:</i></div>
+    </div>
+    <div id="left">
+      <p id="leftp"></p>
+      <center>End of conversation</center>
+    </div>
+    <form id="leftForm" action="#">
+        <input type="text" id="leftInput" placeholder="Type a message">
+        <button id="leftbtn"><i class="fas fa-2x fa-paper-plane"></i></button>
+    </form>
+    <div id="right">
+        <p id="rightp"></p>
+        <center>End of conversation</center>
+      </div>
+      <form id="rightForm" action="#">
+          <input type="text" id="rightInput" placeholder="Type a message">
+         <button id="rightbtn"><i class="fas fa-2x fa-paper-plane"></i></button>
+      </form>
+  </body>
+
+</html>
